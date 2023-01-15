@@ -10,25 +10,25 @@ class ASMROneApiTest {
 
     @Test
     fun testLogin() {
-        val api = ASMROneApi(null, testProxy).Auth()
+        val api = ASMROneClient(null, testProxy).Auth()
         println(api.login("guest", "guest"))
     }
 
     @Test
     fun testRegister() {
-        val api = ASMROneApi(null, testProxy).Auth()
+        val api = ASMROneClient(null, testProxy).Auth()
         println(api.register("guest", "guest"))
     }
 
     @Test
     fun testAuth() {
-        val api = ASMROneApi(guestToken, testProxy).Auth()
+        val api = ASMROneClient(guestToken, testProxy).Auth()
         println(api.authMe())
     }
 
     @Test
     fun testAppVersion() {
-        val api = ASMROneApi(guestToken, testProxy).App()
+        val api = ASMROneClient(guestToken, testProxy).App()
         println(api.version())
     }
 }

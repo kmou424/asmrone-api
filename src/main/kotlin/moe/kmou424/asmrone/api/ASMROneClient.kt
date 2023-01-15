@@ -2,12 +2,12 @@ package moe.kmou424.asmrone.api
 
 import moe.kmou424.asmrone.api.data.auth.LoginData
 import moe.kmou424.asmrone.api.data.auth.RegisterData
-import moe.kmou424.asmrone.api.module.AppApi
-import moe.kmou424.asmrone.api.module.AuthApi
+import moe.kmou424.asmrone.api.module.AppClient
+import moe.kmou424.asmrone.api.module.AuthClient
 import moe.kmou424.asmrone.api.util.HandleUtil
 import java.net.Proxy
 
-class ASMROneApi(
+class ASMROneClient(
     token: String? = null,
     proxy: Proxy = Proxy.NO_PROXY
 ) {
@@ -20,7 +20,7 @@ class ASMROneApi(
     }
 
     inner class App {
-        private val mAppApi: AppApi = AppApi()
+        private val mAppApi: AppClient = AppClient()
 
         fun version() = HandleUtil.checkAccessTokenAndRun { token ->
             mAppApi.version(token)
@@ -29,11 +29,11 @@ class ASMROneApi(
 
 
     inner class Auth {
-        private val mAuthApi: AuthApi = AuthApi()
+        private val mAuthClient: AuthClient = AuthClient()
 
         // 登录并保存token
         fun login(name: String, password: String): LoginData {
-            mAuthApi.login(name, password).let {
+            mAuthClient.login(name, password).let {
                 GlobalProperties.AccessToken = it.token
                 return it
             }
@@ -41,7 +41,7 @@ class ASMROneApi(
 
         // 注册并保存token
         fun register(name: String, password: String): RegisterData {
-            mAuthApi.register(name, password).let {
+            mAuthClient.register(name, password).let {
                 GlobalProperties.AccessToken = it.token
                 return it
             }
@@ -49,7 +49,7 @@ class ASMROneApi(
 
         // 验证token
         fun authMe() = HandleUtil.checkAccessTokenAndRun { token ->
-            mAuthApi.authMe(token)
+            mAuthClient.authMe(token)
         }
 
         // 清除token退出登录
