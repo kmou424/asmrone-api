@@ -9,7 +9,7 @@ import moe.kmou424.asmrone.api.data.auth.RegisterData
 import moe.kmou424.asmrone.api.util.RequestUtil
 import moe.kmou424.asmrone.api.util.RequestUtil.parseBody
 
-class AuthClient {
+internal class AuthClient {
 
     fun login(name: String, password: String) = runBlocking {
         val response = RequestUtil.request(
