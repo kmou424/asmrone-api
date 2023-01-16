@@ -8,7 +8,7 @@ import moe.kmou424.asmrone.api.util.RequestUtil
 import moe.kmou424.asmrone.api.util.RequestUtil.parseBody
 
 internal class AppClient {
-    fun version(token: String) = runBlocking {
+    fun version(token: String = GlobalProperties.Config.AccessToken!!) = runBlocking {
         val response = RequestUtil.request(
             RequestUtil.getHttpClient(authToken = token),
             HttpMethod.Get,

@@ -12,9 +12,9 @@ object HandleUtil {
         obj?.run { block(obj) }
     }
 
-    fun <T> checkAccessTokenAndRun(block: (token: String) -> T): T {
-        if (GlobalProperties.AccessToken == null)
+    fun <T> checkAccessTokenAndRun(block: () -> T): T {
+        if (GlobalProperties.Config.AccessToken == null)
             throw AccessTokenNotFoundException()
-        return block(GlobalProperties.AccessToken!!)
+        return block()
     }
 }

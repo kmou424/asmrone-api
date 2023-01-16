@@ -37,7 +37,7 @@ internal class AuthClient {
         return@runBlocking response.parseBody<RegisterData>()
     }
 
-    fun authMe(token: String) = runBlocking {
+    fun authMe(token: String = GlobalProperties.Config.AccessToken!!) = runBlocking {
         val response = RequestUtil.request(
             RequestUtil.getHttpClient(authToken = token),
             HttpMethod.Get,

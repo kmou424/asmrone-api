@@ -21,7 +21,7 @@ import java.net.Proxy
 
 object RequestUtil {
     fun getHttpClient(
-        requestProxy: Proxy = GlobalProperties.GlobalProxy,
+        requestProxy: Proxy = GlobalProperties.Config.GlobalProxy,
         authToken: String? = null,
         defaultLogger: Logger = Logger.DEFAULT
     ): HttpClient {
