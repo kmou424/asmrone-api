@@ -1,5 +1,6 @@
 package moe.kmou424.asmrone.api
 
+import io.ktor.client.plugins.logging.*
 import moe.kmou424.asmrone.api.constant.MediaRepoConst
 import moe.kmou424.asmrone.api.data.auth.LoginData
 import moe.kmou424.asmrone.api.data.auth.RegisterData
@@ -11,7 +12,8 @@ import java.net.Proxy
 
 class ASMROneClient(
     token: String? = null,
-    proxy: Proxy = Proxy.NO_PROXY
+    proxy: Proxy = Proxy.NO_PROXY,
+    logger: Logger = Logger.DEFAULT
 ) {
 
     init {
@@ -19,6 +21,8 @@ class ASMROneClient(
         GlobalProperties.Config.AccessToken = token
         // 初始化时设置代理
         GlobalProperties.Config.GlobalProxy = proxy
+        // 初始化时配置logger
+        GlobalProperties.Config.GlobalLogger = logger
     }
 
     inner class App {

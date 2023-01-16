@@ -22,12 +22,11 @@ import java.net.Proxy
 object RequestUtil {
     fun getHttpClient(
         requestProxy: Proxy = GlobalProperties.Config.GlobalProxy,
-        authToken: String? = null,
-        defaultLogger: Logger = Logger.DEFAULT
+        authToken: String? = null
     ): HttpClient {
         return HttpClient(OkHttp) {
             install(Logging) {
-                logger = defaultLogger
+                logger = GlobalProperties.Config.GlobalLogger
                 level = LogLevel.ALL
             }
             install(ContentNegotiation) {

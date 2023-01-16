@@ -1,11 +1,13 @@
 package moe.kmou424.asmrone.api
 
+import io.ktor.client.plugins.logging.*
 import java.net.Proxy
 
 internal object GlobalProperties {
 
     object Config {
         var GlobalProxy: Proxy = Proxy.NO_PROXY
+        var GlobalLogger: Logger = Logger.DEFAULT
         var AccessToken: String? = null
         val Seed: Int
             get() = (1 .. 99).random()
