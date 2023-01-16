@@ -11,6 +11,7 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
+import io.ktor.serialization.*
 import io.ktor.serialization.jackson.*
 import io.ktor.util.cio.*
 import kotlinx.coroutines.runBlocking
@@ -91,7 +92,7 @@ object RequestUtil {
     inline fun <reified T> HttpResponse.parseBody() = runBlocking {
         try {
             return@runBlocking body<T>()
-        } catch (e: Exception) {
+        } catch (e: JsonConvertException) {
             throw RequestNotOkException(body())
         }
     }
