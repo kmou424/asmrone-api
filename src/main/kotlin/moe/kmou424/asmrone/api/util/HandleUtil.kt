@@ -13,8 +13,7 @@ object HandleUtil {
     }
 
     fun <T> checkAccessTokenAndRun(block: () -> T): T {
-        if (GlobalProperties.Config.AccessToken == null)
-            throw AccessTokenNotFoundException()
+        GlobalProperties.Config.AccessToken ?: throw AccessTokenNotFoundException()
         return block()
     }
 }
