@@ -17,14 +17,12 @@ object WorkRepoConst {
     enum class FavOrderBy(val key: String) {
         CREATE_DATE("create_date"),
         RELEASE_DATE("release"),
-        MY_RATING("rating"),
         DOWNLOAD_COUNT("dl_count"),
         SELLING_PRICE("price"),
         RATING("rate_average_2dp"),
         REVIEW_COUNT("review_count"),
         DLSITE_ID("id"),
         NO_NSFW("nsfw"),
-        RANDOM("random"),
         UPDATE_DATE("updated_at")
     }
 
