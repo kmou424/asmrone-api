@@ -16,9 +16,9 @@ internal class AuthClient {
             RequestUtil.getHttpClient(),
             HttpMethod.Post,
             urlPath = GlobalProperties.ASMROneApi.Path.AuthMe,
-            jsonBody = HashMap<String, String>().also {
-                it["name"] = name
-                it["password"] = password
+            jsonBody = HashMap<String, String>().also { map ->
+                map["name"] = name
+                map["password"] = password
             }
         )
         return@runBlocking response.parseBody<Login>()
@@ -29,9 +29,9 @@ internal class AuthClient {
             RequestUtil.getHttpClient(),
             HttpMethod.Post,
             urlPath = GlobalProperties.ASMROneApi.Path.Register,
-            jsonBody = HashMap<String, String>().also {
-                it["name"] = name
-                it["password"] = password
+            jsonBody = HashMap<String, String>().also { map ->
+                map["name"] = name
+                map["password"] = password
             }
         )
         return@runBlocking response.parseBody<Register>()

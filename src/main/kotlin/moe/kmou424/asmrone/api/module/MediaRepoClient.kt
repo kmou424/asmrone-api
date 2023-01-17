@@ -22,14 +22,14 @@ internal class MediaRepoClient {
             RequestUtil.getHttpClient(authToken = GlobalProperties.Config.AccessToken),
             HttpMethod.Get,
             urlPath = GlobalProperties.ASMROneApi.Path.Works,
-            urlParameters = HashMap<String, String>().also {
-                it["order"] = orderBy.key
-                it["sort"] = sortMethod.key
-                it["page"] = "$page"
+            urlParameters = HashMap<String, String>().also { map ->
+                map["order"] = orderBy.key
+                map["sort"] = sortMethod.key
+                map["page"] = "$page"
                 if (orderBy == OrderBy.RANDOM) {
-                    it["seed"] = "$seed"
+                    map["seed"] = "$seed"
                 }
-                it["subtitle"] = if (subtitle.has) "1" else "0"
+                map["subtitle"] = if (subtitle.has) "1" else "0"
             }
         )
         return@runBlocking response.parseBody<PaginationWorks>()
