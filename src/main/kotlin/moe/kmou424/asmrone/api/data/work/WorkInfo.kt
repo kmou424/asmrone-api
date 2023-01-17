@@ -32,8 +32,6 @@ data class WorkInfo(
     val rateCount: Int,
     @JsonProperty("rate_count_detail")
     val rateDetailByScore: Array<RateScoreDetail>,
-    @JsonProperty("userRating")
-    val rateByUser: Int?,
     @JsonProperty("release")
     val releaseDateString: String,
     @JsonProperty("review_count")
@@ -41,10 +39,19 @@ data class WorkInfo(
     val tags: Array<Tag>?,
     val title: String,
     @JsonProperty("vas")
-    val vases: Array<Vas>
+    val vases: Array<Vas>,
+    @JsonProperty("userRating")
+    val rateByUser: Int?,
+    @JsonProperty("review_text")
+    val commentText: String?,
+    @JsonProperty("updated_at")
+    val updateDate: String,
+    val progress: String?,
+    @JsonProperty("user_name")
+    val username: String
 ) {
     override fun toString(): String {
-        return "WorkInfoData(circle=$circle, circleId=$circleId, createDateString='$createDateString', downloadCount=$downloadCount, hasSubtitle=$hasSubtitle, dlsiteId=$dlsiteId, mainCoverUrl='$mainCoverUrl', samCoverUrl='$samCoverUrl', thumbnailCoverUrl='$thumbnailCoverUrl', name='$name', isNSFW=$isNSFW, sellingPrice=$sellingPrice, historyRanks=${historyRanks.contentToString()}, rateAvgScore=$rateAvgScore, rateCount=$rateCount, rateDetailByScore=${rateDetailByScore.contentToString()}, rateByUser=$rateByUser, releaseDateString='$releaseDateString', commentCount=$commentCount, tags=${tags.contentToString()}, title='$title', vases=${vases.contentToString()})"
+        return "WorkInfo(circle=$circle, circleId=$circleId, createDateString='$createDateString', downloadCount=$downloadCount, hasSubtitle=$hasSubtitle, dlsiteId=$dlsiteId, mainCoverUrl='$mainCoverUrl', samCoverUrl='$samCoverUrl', thumbnailCoverUrl='$thumbnailCoverUrl', name='$name', isNSFW=$isNSFW, sellingPrice=$sellingPrice, historyRanks=${historyRanks?.contentToString()}, rateAvgScore=$rateAvgScore, rateCount=$rateCount, rateDetailByScore=${rateDetailByScore.contentToString()}, releaseDateString='$releaseDateString', commentCount=$commentCount, tags=${tags?.contentToString()}, title='$title', vases=${vases.contentToString()}, rateByUser=$rateByUser, commentText=$commentText, updateDate='$updateDate', progress=$progress, username='$username')"
     }
 
     override fun equals(other: Any?): Boolean {
@@ -65,16 +72,26 @@ data class WorkInfo(
         if (name != other.name) return false
         if (isNSFW != other.isNSFW) return false
         if (sellingPrice != other.sellingPrice) return false
-        if (!historyRanks.contentEquals(other.historyRanks)) return false
+        if (historyRanks != null) {
+            if (other.historyRanks == null) return false
+            if (!historyRanks.contentEquals(other.historyRanks)) return false
+        } else if (other.historyRanks != null) return false
         if (rateAvgScore != other.rateAvgScore) return false
         if (rateCount != other.rateCount) return false
         if (!rateDetailByScore.contentEquals(other.rateDetailByScore)) return false
-        if (rateByUser != other.rateByUser) return false
         if (releaseDateString != other.releaseDateString) return false
         if (commentCount != other.commentCount) return false
-        if (!tags.contentEquals(other.tags)) return false
+        if (tags != null) {
+            if (other.tags == null) return false
+            if (!tags.contentEquals(other.tags)) return false
+        } else if (other.tags != null) return false
         if (title != other.title) return false
         if (!vases.contentEquals(other.vases)) return false
+        if (rateByUser != other.rateByUser) return false
+        if (commentText != other.commentText) return false
+        if (updateDate != other.updateDate) return false
+        if (progress != other.progress) return false
+        if (username != other.username) return false
 
         return true
     }
@@ -92,16 +109,20 @@ data class WorkInfo(
         result = 31 * result + name.hashCode()
         result = 31 * result + isNSFW.hashCode()
         result = 31 * result + sellingPrice
-        result = 31 * result + historyRanks.contentHashCode()
+        result = 31 * result + (historyRanks?.contentHashCode() ?: 0)
         result = 31 * result + rateAvgScore.hashCode()
         result = 31 * result + rateCount
         result = 31 * result + rateDetailByScore.contentHashCode()
-        result = 31 * result + (rateByUser ?: 0)
         result = 31 * result + releaseDateString.hashCode()
         result = 31 * result + commentCount
-        result = 31 * result + tags.contentHashCode()
+        result = 31 * result + (tags?.contentHashCode() ?: 0)
         result = 31 * result + title.hashCode()
         result = 31 * result + vases.contentHashCode()
+        result = 31 * result + (rateByUser ?: 0)
+        result = 31 * result + (commentText?.hashCode() ?: 0)
+        result = 31 * result + updateDate.hashCode()
+        result = 31 * result + (progress?.hashCode() ?: 0)
+        result = 31 * result + username.hashCode()
         return result
     }
 }

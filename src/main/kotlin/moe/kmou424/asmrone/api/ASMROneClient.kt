@@ -1,12 +1,12 @@
 package moe.kmou424.asmrone.api
 
 import io.ktor.client.plugins.logging.*
-import moe.kmou424.asmrone.api.constant.MediaRepoConst
+import moe.kmou424.asmrone.api.constant.WorkRepoConst
 import moe.kmou424.asmrone.api.data.auth.Login
 import moe.kmou424.asmrone.api.data.auth.Register
 import moe.kmou424.asmrone.api.module.AppClient
 import moe.kmou424.asmrone.api.module.AuthClient
-import moe.kmou424.asmrone.api.module.MediaRepoClient
+import moe.kmou424.asmrone.api.module.WorkRepoClient
 import moe.kmou424.asmrone.api.util.HandleUtil
 import java.net.Proxy
 
@@ -74,17 +74,28 @@ class ASMROneClient(
         }
     }
 
-    inner class MediaRepo {
-        private val mMediaRepoClient: MediaRepoClient = MediaRepoClient()
+    inner class WorkRepo {
+        private val mWorkRepoClient: WorkRepoClient = WorkRepoClient()
 
         fun getWorks(
-            orderBy: MediaRepoConst.OrderBy,
-            sortMethod: MediaRepoConst.SortMethod,
+            orderBy: WorkRepoConst.OrderBy,
+            sortMethod: WorkRepoConst.SortMethod,
             page: Int,
-            subtitle: MediaRepoConst.Subtitle
+            subtitle: WorkRepoConst.Subtitle
         ) = HandleUtil.checkAccessTokenAndRun {
-            mMediaRepoClient.getWorks(
+            mWorkRepoClient.getWorks(
                 orderBy, sortMethod, page, subtitle
+            )
+        }
+
+        fun getFavoriteWorks(
+            favOrderBy: WorkRepoConst.FavOrderBy,
+            sortMethod: WorkRepoConst.SortMethod,
+            page: Int,
+            favProgressFilter: WorkRepoConst.FavProgressFilter? = null
+        ) = HandleUtil.checkAccessTokenAndRun {
+            mWorkRepoClient.getFavoriteWorks(
+                favOrderBy, sortMethod, page, favProgressFilter
             )
         }
     }

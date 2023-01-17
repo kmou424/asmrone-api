@@ -1,6 +1,6 @@
 package moe.kmou424.asmrone.api
 
-import moe.kmou424.asmrone.api.constant.MediaRepoConst
+import moe.kmou424.asmrone.api.constant.WorkRepoConst
 import org.junit.Test
 import java.net.InetSocketAddress
 import java.net.Proxy
@@ -35,12 +35,12 @@ class ASMROneApiTest {
 
     @Test
     fun testGetWorks() {
-        val api = ASMROneClient(guestToken, testProxy).MediaRepo()
+        val api = ASMROneClient(guestToken, testProxy).WorkRepo()
         println(api.getWorks(
-            MediaRepoConst.OrderBy.RANDOM,
-            MediaRepoConst.SortMethod.ASC,
+            WorkRepoConst.OrderBy.RANDOM,
+            WorkRepoConst.SortMethod.ASC,
             1,
-            MediaRepoConst.Subtitle.NO
+            WorkRepoConst.Subtitle.NO
         ))
     }
 }

@@ -22,8 +22,9 @@ internal object GlobalProperties {
             // Auth
             const val AuthMe = "auth/me"
             const val Register = "auth/reg"
-            // MediaRepo
-            const val Works = "works"
+            // WorksRepo
+            const val AllWorks = "works"
+            const val FavWorks = "review"
         }
     }
 }
