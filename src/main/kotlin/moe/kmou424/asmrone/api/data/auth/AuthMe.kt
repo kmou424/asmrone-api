@@ -6,6 +6,6 @@ data class AuthMe(
     val reg: Boolean
 ) {
     override fun toString(): String {
-        return "AuthMeData(user=$user, auth=$auth, reg=$reg)"
+        return "AuthMe(user=$user, auth=$auth, reg=$reg)"
     }
 }

@@ -4,6 +4,6 @@ data class Attribute(
     val name: String
 ) {
     override fun toString(): String {
-        return "AttributeData(name='$name')"
+        return "Attribute(name='$name')"
     }
 }

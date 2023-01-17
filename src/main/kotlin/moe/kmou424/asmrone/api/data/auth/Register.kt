@@ -4,6 +4,6 @@ data class Register(
     val token: String
 ) {
     override fun toString(): String {
-        return "RegisterData(token='$token')"
+        return "Register(token='$token')"
     }
 }

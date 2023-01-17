@@ -4,6 +4,6 @@ data class Login(
     val token: String
 ) {
     override fun toString(): String {
-        return "LoginData(token='$token')"
+        return "Login(token='$token')"
     }
 }

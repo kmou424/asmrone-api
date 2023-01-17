@@ -6,6 +6,6 @@ data class Pagination(
     val totalCount: Int
 ) {
     override fun toString(): String {
-        return "PaginationData(currentPage=$currentPage, pageSize=$pageSize, totalCount=$totalCount)"
+        return "Pagination(currentPage=$currentPage, pageSize=$pageSize, totalCount=$totalCount)"
     }
 }

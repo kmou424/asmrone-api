@@ -5,6 +5,6 @@ data class Circle(
     val name: String
 ) {
     override fun toString(): String {
-        return "CircleData(id=$id, name='$name')"
+        return "Circle(id=$id, name='$name')"
     }
 }

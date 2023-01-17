@@ -8,6 +8,6 @@ data class Tag(
     val name: String
 ) {
     override fun toString(): String {
-        return "TagData(i18n=$i18n, id=$id, name='$name')"
+        return "Tag(i18n=$i18n, id=$id, name='$name')"
     }
 }

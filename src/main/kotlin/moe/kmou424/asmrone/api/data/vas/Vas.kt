@@ -5,6 +5,6 @@ data class Vas(
     val name: String
 ) {
     override fun toString(): String {
-        return "VasData(id=$id, name='$name')"
+        return "Vas(id='$id', name='$name')"
     }
 }

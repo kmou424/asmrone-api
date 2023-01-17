@@ -9,6 +9,6 @@ data class RateScoreDetail(
     val point: Int
 ) {
     override fun toString(): String {
-        return "RatePointData(count=$count, ratio=$ratio, point=$point)"
+        return "RateScoreDetail(count=$count, ratio=$ratio, point=$point)"
     }
 }

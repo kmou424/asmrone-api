@@ -10,6 +10,6 @@ data class Rank(
     val term: String
 ) {
     override fun toString(): String {
-        return "WorkRankData(category='$category', rank=$rank, rankDate='$rankDate', term='$term')"
+        return "Rank(category='$category', rank=$rank, rankDate='$rankDate', term='$term')"
     }
 }

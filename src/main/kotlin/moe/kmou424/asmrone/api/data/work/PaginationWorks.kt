@@ -5,7 +5,7 @@ data class PaginationWorks(
     val works: Array<WorkInfo>
 ) {
     override fun toString(): String {
-        return "PaginationWorksData(pagination=$pagination, works=${works.contentToString()})"
+        return "PaginationWorks(pagination=$pagination, works=${works.contentToString()})"
     }
 
     override fun equals(other: Any?): Boolean {

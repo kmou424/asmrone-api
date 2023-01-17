@@ -15,6 +15,6 @@ data class Version(
     val updateAvailable: Boolean
 ) {
     override fun toString(): String {
-        return "VersionData(current='$current', latestRelease='$latestRelease', latestStable='$latestStable', lockFileExists=$lockFileExists, lockReason=$lockReason, notifyUser=$notifyUser, updateAvailable=$updateAvailable)"
+        return "Version(current='$current', latestRelease='$latestRelease', latestStable='$latestStable', lockFileExists=$lockFileExists, lockReason=$lockReason, notifyUser=$notifyUser, updateAvailable=$updateAvailable)"
     }
 }
