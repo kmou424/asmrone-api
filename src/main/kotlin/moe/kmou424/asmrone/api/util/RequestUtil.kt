@@ -58,7 +58,6 @@ object RequestUtil {
         urlHost: String = GlobalProperties.ASMROneApi.host,
         urlPath: String = "",
         urlParameters: Map<String, String>? = null,
-        userAgent: String = "ktor client",
         acceptContentType: String = "text/json",
         binaryFile: File? = null,
         jsonBody: Map<String, Any?>? = null,
@@ -77,7 +76,7 @@ object RequestUtil {
             }
             headers {
                 append(HttpHeaders.Accept, acceptContentType)
-                append(HttpHeaders.UserAgent, userAgent)
+                append(HttpHeaders.UserAgent, GlobalProperties.Config.UserAgent)
             }
             HandleUtil.isNotNullRun(binaryFile) { file ->
                 setBody(file.readChannel())

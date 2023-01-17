@@ -25,6 +25,16 @@ class ASMROneClient(
         GlobalProperties.Config.GlobalLogger = logger
     }
 
+    inner class Config {
+        fun setProxy(proxy: Proxy) {
+            GlobalProperties.Config.GlobalProxy = proxy
+        }
+
+        fun setUserAgent(userAgent: String) {
+            GlobalProperties.Config.UserAgent = userAgent
+        }
+    }
+
     inner class App {
         private val mAppApi: AppClient = AppClient()
 

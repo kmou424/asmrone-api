@@ -9,6 +9,7 @@ internal object GlobalProperties {
         var GlobalProxy: Proxy = Proxy.NO_PROXY
         var GlobalLogger: Logger = Logger.DEFAULT
         var AccessToken: String? = null
+        var UserAgent: String = "ktor client"
         val Seed: Int
             get() = (1 .. 99).random()
     }
