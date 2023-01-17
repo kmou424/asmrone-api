@@ -43,4 +43,15 @@ class ASMROneApiTest {
             WorkRepoConst.Subtitle.NO
         ))
     }
+
+    @Test
+    fun testGetFavoriteWorks() {
+        val api = ASMROneClient(guestToken, testProxy).WorkRepo()
+        println(api.getFavoriteWorks(
+            WorkRepoConst.FavOrderBy.UPDATE_DATE,
+            WorkRepoConst.SortMethod.DESC,
+            1,
+            WorkRepoConst.FavProgressFilter.LISTEN_DONE
+        ))
+    }
 }
