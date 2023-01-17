@@ -1,6 +1,6 @@
 package moe.kmou424.asmrone.api.data.auth
 
-data class UserData(
+data class User(
     val name: String,
     val group: String
 ) {

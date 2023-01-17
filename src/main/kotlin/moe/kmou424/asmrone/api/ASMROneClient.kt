@@ -2,8 +2,8 @@ package moe.kmou424.asmrone.api
 
 import io.ktor.client.plugins.logging.*
 import moe.kmou424.asmrone.api.constant.MediaRepoConst
-import moe.kmou424.asmrone.api.data.auth.LoginData
-import moe.kmou424.asmrone.api.data.auth.RegisterData
+import moe.kmou424.asmrone.api.data.auth.Login
+import moe.kmou424.asmrone.api.data.auth.Register
 import moe.kmou424.asmrone.api.module.AppClient
 import moe.kmou424.asmrone.api.module.AuthClient
 import moe.kmou424.asmrone.api.module.MediaRepoClient
@@ -38,7 +38,7 @@ class ASMROneClient(
         private val mAuthClient: AuthClient = AuthClient()
 
         // 登录并保存token
-        fun login(name: String, password: String): LoginData {
+        fun login(name: String, password: String): Login {
             mAuthClient.login(name, password).let {
                 GlobalProperties.Config.AccessToken = it.token
                 return it
@@ -46,7 +46,7 @@ class ASMROneClient(
         }
 
         // 注册并保存token
-        fun register(name: String, password: String): RegisterData {
+        fun register(name: String, password: String): Register {
             mAuthClient.register(name, password).let {
                 GlobalProperties.Config.AccessToken = it.token
                 return it

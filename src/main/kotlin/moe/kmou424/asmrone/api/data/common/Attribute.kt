@@ -1,6 +1,6 @@
 package moe.kmou424.asmrone.api.data.common
 
-data class AttributeData(
+data class Attribute(
     val name: String
 ) {
     override fun toString(): String {

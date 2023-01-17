@@ -6,7 +6,7 @@ import moe.kmou424.asmrone.api.GlobalProperties
 import moe.kmou424.asmrone.api.constant.MediaRepoConst.OrderBy
 import moe.kmou424.asmrone.api.constant.MediaRepoConst.SortMethod
 import moe.kmou424.asmrone.api.constant.MediaRepoConst.Subtitle
-import moe.kmou424.asmrone.api.data.work.PaginationWorksData
+import moe.kmou424.asmrone.api.data.work.PaginationWorks
 import moe.kmou424.asmrone.api.util.RequestUtil
 import moe.kmou424.asmrone.api.util.RequestUtil.parseBody
 
@@ -32,6 +32,6 @@ internal class MediaRepoClient {
                 it["subtitle"] = if (subtitle.has) "1" else "0"
             }
         )
-        return@runBlocking response.parseBody<PaginationWorksData>()
+        return@runBlocking response.parseBody<PaginationWorks>()
     }
 }

@@ -2,7 +2,7 @@ package moe.kmou424.asmrone.api.data.work
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class RankData(
+data class Rank(
     val category: String,
     val rank: Int,
     @JsonProperty("rank_date")

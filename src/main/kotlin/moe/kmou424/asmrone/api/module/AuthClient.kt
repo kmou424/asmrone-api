@@ -3,9 +3,9 @@ package moe.kmou424.asmrone.api.module
 import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 import moe.kmou424.asmrone.api.GlobalProperties
-import moe.kmou424.asmrone.api.data.auth.AuthMeData
-import moe.kmou424.asmrone.api.data.auth.LoginData
-import moe.kmou424.asmrone.api.data.auth.RegisterData
+import moe.kmou424.asmrone.api.data.auth.AuthMe
+import moe.kmou424.asmrone.api.data.auth.Login
+import moe.kmou424.asmrone.api.data.auth.Register
 import moe.kmou424.asmrone.api.util.RequestUtil
 import moe.kmou424.asmrone.api.util.RequestUtil.parseBody
 
@@ -21,7 +21,7 @@ internal class AuthClient {
                 it["password"] = password
             }
         )
-        return@runBlocking response.parseBody<LoginData>()
+        return@runBlocking response.parseBody<Login>()
     }
 
     fun register(name: String, password: String) = runBlocking {
@@ -34,7 +34,7 @@ internal class AuthClient {
                 it["password"] = password
             }
         )
-        return@runBlocking response.parseBody<RegisterData>()
+        return@runBlocking response.parseBody<Register>()
     }
 
     fun authMe(token: String = GlobalProperties.Config.AccessToken!!) = runBlocking {
@@ -43,6 +43,6 @@ internal class AuthClient {
             HttpMethod.Get,
             urlPath = GlobalProperties.ASMROneApi.Path.AuthMe
         )
-        return@runBlocking response.parseBody<AuthMeData>()
+        return@runBlocking response.parseBody<AuthMe>()
     }
 }

@@ -1,7 +1,7 @@
 package moe.kmou424.asmrone.api.data.auth
 
-data class AuthMeData(
-    val user: UserData,
+data class AuthMe(
+    val user: User,
     val auth: Boolean,
     val reg: Boolean
 ) {

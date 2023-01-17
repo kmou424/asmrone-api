@@ -1,11 +1,11 @@
 package moe.kmou424.asmrone.api.data.work
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import moe.kmou424.asmrone.api.data.circle.CircleData
-import moe.kmou424.asmrone.api.data.vas.VasData
+import moe.kmou424.asmrone.api.data.circle.Circle
+import moe.kmou424.asmrone.api.data.vas.Vas
 
-data class WorkInfoData(
-    val circle: CircleData,
+data class WorkInfo(
+    val circle: Circle,
     @JsonProperty("circle_id")
     val circleId: Int,
     @JsonProperty("create_date")
@@ -25,23 +25,23 @@ data class WorkInfoData(
     @JsonProperty("price")
     val sellingPrice: Int,
     @JsonProperty("rank")
-    val historyRanks: Array<RankData>?,
+    val historyRanks: Array<Rank>?,
     @JsonProperty("rate_average_2dp")
     val rateAvgScore: Double,
     @JsonProperty("rate_count")
     val rateCount: Int,
     @JsonProperty("rate_count_detail")
-    val rateDetailByScore: Array<RateScoreDetailData>,
+    val rateDetailByScore: Array<RateScoreDetail>,
     @JsonProperty("userRating")
     val rateByUser: Int?,
     @JsonProperty("release")
     val releaseDateString: String,
     @JsonProperty("review_count")
     val commentCount: Int,
-    val tags: Array<TagData>?,
+    val tags: Array<Tag>?,
     val title: String,
     @JsonProperty("vas")
-    val vases: Array<VasData>
+    val vases: Array<Vas>
 ) {
     override fun toString(): String {
         return "WorkInfoData(circle=$circle, circleId=$circleId, createDateString='$createDateString', downloadCount=$downloadCount, hasSubtitle=$hasSubtitle, dlsiteId=$dlsiteId, mainCoverUrl='$mainCoverUrl', samCoverUrl='$samCoverUrl', thumbnailCoverUrl='$thumbnailCoverUrl', name='$name', isNSFW=$isNSFW, sellingPrice=$sellingPrice, historyRanks=${historyRanks.contentToString()}, rateAvgScore=$rateAvgScore, rateCount=$rateCount, rateDetailByScore=${rateDetailByScore.contentToString()}, rateByUser=$rateByUser, releaseDateString='$releaseDateString', commentCount=$commentCount, tags=${tags.contentToString()}, title='$title', vases=${vases.contentToString()})"
@@ -51,7 +51,7 @@ data class WorkInfoData(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as WorkInfoData
+        other as WorkInfo
 
         if (circle != other.circle) return false
         if (circleId != other.circleId) return false

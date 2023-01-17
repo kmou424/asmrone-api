@@ -1,9 +1,9 @@
 package moe.kmou424.asmrone.api.data.work
 
-import moe.kmou424.asmrone.api.data.common.AttributeData
+import moe.kmou424.asmrone.api.data.common.Attribute
 
-data class TagData(
-    val i18n: Map<String, AttributeData>,
+data class Tag(
+    val i18n: Map<String, Attribute>,
     val id: Int,
     val name: String
 ) {

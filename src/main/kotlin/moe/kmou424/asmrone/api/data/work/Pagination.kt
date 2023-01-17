@@ -1,6 +1,6 @@
 package moe.kmou424.asmrone.api.data.work
 
-data class PaginationData(
+data class Pagination(
     val currentPage: Int,
     val pageSize: Int,
     val totalCount: Int

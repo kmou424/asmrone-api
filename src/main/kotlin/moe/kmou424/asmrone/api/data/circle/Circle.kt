@@ -1,6 +1,6 @@
 package moe.kmou424.asmrone.api.data.circle
 
-data class CircleData(
+data class Circle(
     val id: Int,
     val name: String
 ) {

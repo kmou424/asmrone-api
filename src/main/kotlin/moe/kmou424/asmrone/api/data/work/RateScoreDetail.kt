@@ -2,7 +2,7 @@ package moe.kmou424.asmrone.api.data.work
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class RateScoreDetailData(
+data class RateScoreDetail(
     val count: Int,
     val ratio: Int,
     @JsonProperty("review_point")

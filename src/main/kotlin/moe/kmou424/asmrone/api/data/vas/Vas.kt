@@ -1,6 +1,6 @@
 package moe.kmou424.asmrone.api.data.vas
 
-data class VasData(
+data class Vas(
     val id: String,
     val name: String
 ) {

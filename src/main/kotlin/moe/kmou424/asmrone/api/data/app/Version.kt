@@ -2,7 +2,7 @@ package moe.kmou424.asmrone.api.data.app
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class VersionData(
+data class Version(
     val current: String,
     @JsonProperty("latest_release")
     val latestRelease: String,

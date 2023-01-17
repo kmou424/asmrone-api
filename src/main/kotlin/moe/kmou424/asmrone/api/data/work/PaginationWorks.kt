@@ -1,8 +1,8 @@
 package moe.kmou424.asmrone.api.data.work
 
-data class PaginationWorksData(
-    val pagination: PaginationData,
-    val works: Array<WorkInfoData>
+data class PaginationWorks(
+    val pagination: Pagination,
+    val works: Array<WorkInfo>
 ) {
     override fun toString(): String {
         return "PaginationWorksData(pagination=$pagination, works=${works.contentToString()})"
@@ -12,7 +12,7 @@ data class PaginationWorksData(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as PaginationWorksData
+        other as PaginationWorks
 
         if (pagination != other.pagination) return false
         if (!works.contentEquals(other.works)) return false
